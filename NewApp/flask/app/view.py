@@ -26,10 +26,15 @@ def gen_csv():
         from_date=request.form['from_date']
         to_date=request.form['to_date']
         file_name=phone_no+"_"+from_date+"_"+to_date+".csv"
-        # ffd.plugin_csv(name,phone_no,from_date,to_date,file_name)
-        return ffd.plugin_csv(name,phone_no,from_date,to_date,file_name)
-    return "error"
+        flag=ffd.plugin_check_cred(name,phone_no)
+        if flag:
+            return ffd.plugin_csv(name,phone_no,from_date,to_date,file_name)
+        else :
+            return "Credentials are Wrong" 
+    return "error in POSTING"
     
 @app.route("/getcsv/<path:filename>",methods=['GET','POST'])
 def download_file(filename):
     return send_from_directory("static",filename)
+
+
