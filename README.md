@@ -1,6 +1,6 @@
 # RecommenderXdashboard
 
-create a virtual env in NewApp/flask/ folder by running below command
+create a virtual env in NewApp/flask/ folder by running below command \n
 python3 -m venv env
 
 activate the environment and run in Newapp directory
